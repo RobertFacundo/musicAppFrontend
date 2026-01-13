@@ -1,34 +1,39 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+
+import Header from "./shared/components/Header/header.tsx";
+
+import HomeView from "./features/music/HomeView";
+import AuthView from "./features/auth/AuthView";
+import ProfileView from "./features/profile/ProfileView.tsx";
+import ArtistView from './features/music/ArtistView.tsx';
+import TrackView from './features/music/TrackView.tsx';
+import UpgradeView from './features/upgrade/UpgradeView.tsx';
+import NotFoundView from './shared/views/NotFoundView.tsx';
+
+import { ProtectedRoute } from './shared/router/ProtectedRoute.tsx'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route path="/" element={<HomeView />} />
+        <Route path="/auth" element={<AuthView />} />
+
+        <Route path="/profile"
+          element={
+            <ProtectedRoute>
+              <ProfileView />
+            </ProtectedRoute>
+          }
+        />
+        <Route path="/artist/:id" element={<ArtistView />} />
+        <Route path="/track/:id" element={<TrackView />} />
+        <Route path="/upgrade" element={<UpgradeView />} />
+
+        <Route path="*" element={<NotFoundView />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
