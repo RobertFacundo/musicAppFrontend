@@ -1,8 +1,51 @@
-:root {
-  color-scheme: light dark;
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* RESET */
+html, body {
+  margin: 0;
+  padding: 0;
 }
 
-html,body {
-  margin: 0;
-  padding: 0
+body {
+  min-height: 100dvh;
+  background: var(--app-bg);
+  font-family: 'Iceland', system-ui, sans-serif;
+}
+
+/* LIGHT */
+html {
+  --app-bg: linear-gradient(
+    242deg,
+    rgba(247, 247, 203, 1) 0%,
+    rgba(247, 247, 210, 1) 22%,
+    rgba(252, 249, 139, 1) 58%,
+    rgba(252, 252, 212, 1) 100%
+  );
+}
+
+/* DARK */
+html.dark {
+  --app-bg: linear-gradient(
+    131deg,
+    rgb(38, 36, 27) 0%,
+    rgba(77, 73, 0, 1) 29%,
+    rgba(145, 119, 0, 1) 70%,
+    rgba(79, 67, 0, 1) 100%
+  );
+}
+
+.input-auth {
+  @apply
+    px-4 py-3 rounded-xl
+    bg-neutral-100 dark:bg-neutral-800
+    border border-black/10 dark:border-white/10
+    focus:outline-none
+    focus:ring-2 focus:ring-[#F9D52F]
+    transition;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Orbitron', system-ui, sans-serif;
+  letter-spacing: 0.2em;
 }

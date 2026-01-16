@@ -2,6 +2,7 @@ import { useForm } from 'react-hook-form';
 import { useAuth } from './useAuth';
 import type { AuthMode } from '../components/AuthForm';
 import type { RegisterDTO, LoginDTO } from '../types';
+import { useNavigate } from 'react-router-dom';
 
 interface AuthFormValues {
     username?: string;
@@ -11,6 +12,7 @@ interface AuthFormValues {
 
 export const useAuthForm = (mode: AuthMode) => {
     const { register, handleSubmit } = useForm<AuthFormValues>();
+    const navigate = useNavigate();
 
     const {
         login,
@@ -22,23 +24,29 @@ export const useAuthForm = (mode: AuthMode) => {
     } = useAuth();
 
     const onSubmit = async (data: AuthFormValues) => {
-        if (mode === 'login') {
-            const payload: LoginDTO = {
-                email: data.email,
-                password: data.password,
-            };
+        try {
+            if (mode === 'login') {
+                const payload: LoginDTO = {
+                    email: data.email,
+                    password: data.password,
+                };
 
-            await login(payload)
-        }
+                await login(payload)
+            }
 
-        if (mode === 'register') {
-            const payload: RegisterDTO = {
-                username: data.username!,
-                email: data.email,
-                password: data.password,
-            };
+            if (mode === 'register') {
+                const payload: RegisterDTO = {
+                    username: data.username!,
+                    email: data.email,
+                    password: data.password,
+                };
 
-            await registerUser(payload);
+                await registerUser(payload);
+            }
+
+            navigate('/profile')
+        } catch (err) {
+            console.error(err)
         }
     };
 
