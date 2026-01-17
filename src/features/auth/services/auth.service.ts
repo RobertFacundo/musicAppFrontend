@@ -14,4 +14,4 @@ export const authService = {
         api.post('/auth/login', data).then(res => res.data),
 
     getMe: (): Promise<AuthResponse> => api.get('/auth/me').then(res => res.data),
-}
+}   

@@ -1,16 +1,41 @@
+import { ProfileHeader } from "./components/ProfileHeader";
+import { ProfileCardFavorites } from "./components/ProfileCardFavorites";
+import { ProfileSettings } from "./components/ProfileSettings";
+import { ProfileCardHistory } from "./components/ProfileCardHistory";
 import { useAppSelector } from "../../shared/redux/hooks";
+import { motion } from 'framer-motion'
+import { fadeContainer, fadeItemUp } from '../../shared/animations/motionVariants';
 
 const ProfileView = () => {
-    const user = useAppSelector((state) => state.auth.user);
-    console.log(user);
+    const user = useAppSelector((state) => state.auth.user)
+    console.log(user)
+    if (!user) return <p>No user loaded</p>
 
-    if (!user) {
-        return <p>No user loaded</p>
-    }
     return (
-        <div className="dark:bg-black bg-white">
-            <h1 className="dark:text-red-400">Hola</h1>
-        </div>
+        <motion.div
+            className="p-6 space-y-6 dark:text-white min-h-screen flex flex-col"
+            variants={fadeContainer}
+            initial='hidden'
+            animate='show'
+        >
+            <motion.div variants={fadeItemUp}>
+                <ProfileHeader user={user} />
+            </motion.div>
+            <div className="flex flex-col space-y-12">
+                <motion.div className="flex items-center" variants={fadeItemUp}>
+                    <ProfileSettings />
+                </motion.div>
+
+                <div className="flex flex-col h-full space-y-3">
+                    <motion.div variants={fadeItemUp}>
+                        <ProfileCardFavorites favorites={user.favorites} />
+                    </motion.div>
+                    <motion.div variants={fadeItemUp}>
+                        <ProfileCardHistory history={user.history} />
+                    </motion.div>
+                </div>
+            </div>
+        </motion.div>
     )
 };
 
