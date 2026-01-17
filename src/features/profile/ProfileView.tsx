@@ -13,7 +13,7 @@ const ProfileView = () => {
 
     return (
         <motion.div
-            className="p-6 space-y-6 dark:text-white min-h-screen flex flex-col"
+            className="p-6 space-y-6 dark:text-white min-h-screen flex flex-col "
             variants={fadeContainer}
             initial='hidden'
             animate='show'

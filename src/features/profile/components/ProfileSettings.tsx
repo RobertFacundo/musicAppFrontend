@@ -7,7 +7,7 @@ export const ProfileSettings = () => {
     const theme = useAppSelector((state) => state.theme.mode);
 
     return (
-        <div className="p-4 rounded-xl shadow-md bg-white/70 dark:bg-neutral-900/70 w-full min-h-[200px] flex flex-col ">
+        <div className="p-4 rounded-xl shadow-md  w-full min-h-[200px] flex flex-col bg-white/70 dark:bg-neutral-900/70">
             <h3 className="font-bold mb-2">Settings</h3>
             <button
                 onClick={() => dispatch(toggleTheme())}
