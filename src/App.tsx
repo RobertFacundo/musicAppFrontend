@@ -7,6 +7,7 @@ import AuthView from "./features/auth/AuthView";
 import ProfileView from "./features/profile/ProfileView.tsx";
 import ArtistView from './features/music/ArtistView.tsx';
 import TrackView from './features/music/TrackView.tsx';
+import PlaylistView from "./features/music/PlaylistView.tsx";
 import UpgradeView from './features/upgrade/UpgradeView.tsx';
 import NotFoundView from './shared/views/NotFoundView.tsx';
 import Footer from "./shared/components/Footer/Footer.tsx";
@@ -32,6 +33,7 @@ function App() {
               }
             />
             <Route path="/artist/:id" element={<ArtistView />} />
+            <Route path="/playlist/:id" element={<PlaylistView />} />
             <Route path="/track/:id" element={<TrackView />} />
             <Route path="/upgrade" element={<UpgradeView />} />
 
