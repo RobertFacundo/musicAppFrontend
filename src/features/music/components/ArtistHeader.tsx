@@ -8,7 +8,7 @@ type Props = {
 
 const ArtistHeader = ({ artist }: Props) => {
     return (
-        <motion.div variants={fadeItemUp} className="flex items-center justify-around gap-6">
+        <motion.div variants={fadeItemUp} className="flex items-center justify-around gap-6 shrink-0">
             <img src={artist.image} alt={artist.name} className="h-80 w-80 rounded-xl object-cover" />
             <div>
                 <h1 className="text-4xl font-bold dark:text-white">{artist.name}</h1>

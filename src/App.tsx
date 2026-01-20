@@ -8,6 +8,8 @@ import ProfileView from "./features/profile/ProfileView.tsx";
 import ArtistView from './features/music/ArtistView.tsx';
 import TrackView from './features/music/TrackView.tsx';
 import PlaylistView from "./features/music/PlaylistView.tsx";
+import AlbumView from "./features/music/AlbumView.tsx";
+import GenreView from "./features/music/GenreView.tsx";
 import UpgradeView from './features/upgrade/UpgradeView.tsx';
 import NotFoundView from './shared/views/NotFoundView.tsx';
 import Footer from "./shared/components/Footer/Footer.tsx";
@@ -20,7 +22,7 @@ function App() {
     <BrowserRouter>
       <Header />
       <AppLayout>
-        <main className='relative z-10 flex-1 '>
+        <main className='relative z-10 h-screen overflow-hidden'>
           <Routes>
             <Route path="/" element={<HomeView />} />
             <Route path="/auth" element={<AuthView />} />
@@ -34,6 +36,8 @@ function App() {
             />
             <Route path="/artist/:id" element={<ArtistView />} />
             <Route path="/playlist/:id" element={<PlaylistView />} />
+            <Route path="/album/:id" element={<AlbumView />} />
+            <Route path="/genre/:genreId" element={<GenreView />} />
             <Route path="/track/:id" element={<TrackView />} />
             <Route path="/upgrade" element={<UpgradeView />} />
 

@@ -33,7 +33,7 @@ const HomeView = () => {
     }
 
     return (
-        <div className="p-6">
+        <div className="p-6 h-full flex flex-col  overflow-y-auto">
             <HomeCard
                 title="Popular Artists"
                 items={
@@ -54,7 +54,7 @@ const HomeView = () => {
                         image: g.image
                     })) ?? []
                 }
-                onItemClick={(id) => { console.log('Genre clicked', id) }}
+                onItemClick={(id) => navigate(`/genre/${id}`)}
             />
             <HomeCard
                 title="Featured playlists"

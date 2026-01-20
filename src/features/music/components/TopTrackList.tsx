@@ -1,20 +1,27 @@
-import type { Track } from "../services/artist.service";
+import { fadeContainer } from "../../../shared/animations/motionVariants";
+import type { TrackUI } from "../../../shared/types/track-ui";
 import TrackRow from "./TrackRow";
+import { motion } from 'framer-motion'
 
 type Props = {
-    tracks: Track[];
+    tracks: TrackUI[];
+    title: string;
 };
 
-const TopTracksList = ({ tracks }: Props) => {
+const TopTracksList = ({ tracks, title = 'Tracks' }: Props) => {
     return (
-        <section>
-            <h2 className="mb-4 text-xl font-semibold dark:text-white">Top Tracks</h2>
-            <div className="space-y-2">
+        <motion.section
+            variants={fadeContainer}
+            initial='hidden'
+            animate='show'
+        >
+            <h2 className="mb-4 text-xl font-semibold dark:text-white">{title}</h2>
+            <motion.div variants={fadeContainer} className="space-y-2">
                 {tracks.map((track, index) => (
                     <TrackRow key={track.id} track={track} index={index + 1} />
                 ))}
-            </div>
-        </section>
+            </motion.div>
+        </motion.section>
     );
 };
 

@@ -15,16 +15,16 @@ const ArtistView = () => {
     if (error || !data) {
         return <p className="p-6 text-red-500">Failed to load artist...</p>
     }
-
+    
     return (
         <motion.div
-            className="p-6"
+            className="p-6 h-full flex flex-col overflow-y-auto"
             variants={fadeContainer}
             initial='hidden'
             animate='show'
         >
             <ArtistHeader artist={data.artist} />
-            <TopTracksList tracks={data.topTracks} />
+            <TopTracksList tracks={data.topTracks} title="Top tracks" />
         </motion.div>
     )
 };
