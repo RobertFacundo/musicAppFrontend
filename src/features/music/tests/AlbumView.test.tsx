@@ -3,6 +3,7 @@ import { describe, it, expect, vi } from "vitest";
 import { renderWithRouter } from "./renderWithRouter";
 import AlbumView from "../AlbumView";
 import { useAlbum } from "../hooks/useAlbum";
+import { renderWithRouterAndRoute } from "./renderWithRouterAndRoute";
 
 vi.mock("../hooks/useAlbum");
 
@@ -42,8 +43,9 @@ describe("AlbumView", () => {
             error: null,
         } as any);
 
-        renderWithRouter(<AlbumView />, {
+       renderWithRouterAndRoute(<AlbumView />, {
             route: "/album/1",
+            path: '/album/:id', 
         });
 
         expect(
@@ -58,8 +60,9 @@ describe("AlbumView", () => {
             error: new Error("error"),
         } as any);
 
-        renderWithRouter(<AlbumView />, {
+        renderWithRouterAndRoute(<AlbumView />, {
             route: "/album/1",
+            path: '/album/:id', 
         });
 
         expect(
@@ -74,8 +77,9 @@ describe("AlbumView", () => {
             error: null,
         } as any);
 
-        renderWithRouter(<AlbumView />, {
+        renderWithRouterAndRoute(<AlbumView />, {
             route: "/album/1",
+            path: '/album/:id', 
         });
 
         expect(
@@ -104,8 +108,9 @@ describe("AlbumView", () => {
             error: null,
         } as any);
 
-        renderWithRouter(<AlbumView />, {
+        renderWithRouterAndRoute(<AlbumView />, {
             route: "/album/1",
+            path: '/album/:id', 
         });
 
         expect(
@@ -142,8 +147,9 @@ describe("AlbumView", () => {
             error: null,
         } as any);
 
-        renderWithRouter(<AlbumView />, {
+        renderWithRouterAndRoute(<AlbumView />, {
             route: "/album/1",
+            path: '/album/:id', 
         });
 
         fireEvent.click(
