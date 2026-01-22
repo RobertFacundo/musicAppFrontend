@@ -9,3 +9,12 @@ export const useArtist = (artistId?: string) => {
         staleTime: 1000 * 60 * 5,
     })
 }
+
+export const useArtistAlbums = (artistId?: string) => {
+    return useQuery({
+        queryKey: ['artist-albums', artistId],
+        queryFn: () => artistService.getArtistAlbums(artistId!),
+        enabled: !!artistId,
+        staleTime: 1000 * 60 * 10,
+    });
+};
