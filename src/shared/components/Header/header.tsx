@@ -1,11 +1,13 @@
 import { NavLink } from "react-router-dom";
 import { FaHome, FaUser } from 'react-icons/fa'
+import Search from "../Search/Search";
 
 const Header = () => {
     return (
         <header className="sticky top-0 z-50 bg-white/40 dark:bg-neutral-900/40 shadow-md">
             <nav className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
                 <h1 className="font-bold text-lg text-neutral-900 dark:text-white">Music App</h1>
+                <Search/>
                 <div className="flex gap-6">
                     <NavLink
                         to='/'
@@ -13,7 +15,7 @@ const Header = () => {
                             `flex items-center gap-2 font-medium transition
                     ${isActive
                                 ? "text-black dark:text-white text-2xl"
-                                : "text-white-600 dark:text-neutral-300 hover:text-yellow-500"
+                                : "text-white-600 dark:text-neutral-300 hover:text-red-300"
                             }
                     `
                         }
@@ -27,7 +29,7 @@ const Header = () => {
                             `flex items-center gap-2 font-medium transition
                     ${isActive
                                 ? 'text-black dark:text-white text-2xl'
-                                : 'text-white-600 dark:text-neutral-300 hover:text-yellow-500'
+                                : 'text-white-600 dark:text-neutral-300 hover:text-red-300'
                             }`}
                     >
                         <FaUser />

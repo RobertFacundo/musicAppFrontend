@@ -23,7 +23,7 @@ export const ProfileSettings = () => {
 
             <Link
                 to='/upgrade'
-                className="block w-full text-center mt-2 p-2 rounded-lg bg-yellow-500 text-white"
+                className="block w-full text-center mt-2 p-2 rounded-lg premium-gradient"
             >
                 Upgrade to premium
             </Link>

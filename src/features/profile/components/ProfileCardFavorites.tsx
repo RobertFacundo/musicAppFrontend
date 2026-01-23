@@ -26,7 +26,7 @@ export const ProfileCardFavorites = ({ favorites }: Props) => {
                     No favorites songs yet
                 </p>
             ) : (
-                <motion.ul variants={fadeContainer} initial='hidden' animate='show' className="space-y-2">
+                <motion.ul variants={fadeContainer} initial='hidden' animate='show' className="space-y-2 h-100 overflow-y-auto">
                     {tracks?.map((track, index) => (
                         <TrackRow
                             key={track.id}

@@ -16,7 +16,7 @@ export const ProfileCardHistory = ({ history }: Props) => {
                     No history yet
                 </p>
             ) : (
-                <ul className="space-y-2">
+                <ul className="space-y-2 h-100 overflow-y-auto">
                     {history.map((item, index) => (
                         <HistoryRow
                             key={`${item.type}-${item.deezerId}-${index}`}

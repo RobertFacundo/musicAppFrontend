@@ -23,7 +23,7 @@ const HomeCard = <T extends ItemBase>({
 
     return (
         <section className="mb-10">
-            <h2 className="mb-4 text-xl font-semibold">
+            <h2 className="mb-4 text-xl font-semibold dark:text-white">
                 {title}
             </h2>
             <motion.div

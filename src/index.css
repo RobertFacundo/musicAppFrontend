@@ -15,7 +15,7 @@ body {
 }
 
 /* LIGHT */
-html {
+html{
   --app-bg: linear-gradient(
     242deg,
     rgb(247, 203, 203) 0%,
@@ -26,7 +26,7 @@ html {
 }
 
 /* DARK */
-html.dark {
+html.dark{
   --app-bg: linear-gradient(
     131deg,
     rgb(38, 27, 27) 0%,
@@ -34,6 +34,18 @@ html.dark {
     rgb(145, 0, 0) 70%,
     rgb(79, 0, 0) 100%
   );
+}
+
+.premium-gradient {
+  background: var(--app-bg);
+  color: white;
+}
+
+.premium-text {
+  background: var(--app-bg);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .input-auth {
@@ -53,4 +65,39 @@ h1, h2, h3, h4, h5, h6 {
 
 :root {
   --header-h: 64px; /* o el valor real */
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.35);
+  border-radius: 999px;
+}
+
+/* Hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.55);
+}
+
+/* Remove arrows */
+::-webkit-scrollbar-button {
+  display: none;
+}
+
+/* =========================
+   DARK MODE
+   ========================= */
+html.dark ::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+html.dark ::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.45);
 }
