@@ -11,6 +11,7 @@ import PlaylistView from "./features/music/PlaylistView.tsx";
 import AlbumView from "./features/music/AlbumView.tsx";
 import GenreView from "./features/music/GenreView.tsx";
 import UpgradeView from './features/upgrade/UpgradeView.tsx';
+import UpgradeSuccess from "./features/upgrade/components/UpgradeSucess.tsx";
 import NotFoundView from './shared/views/NotFoundView.tsx';
 import Footer from "./shared/components/Footer/Footer.tsx";
 
@@ -40,6 +41,7 @@ function App() {
             <Route path="/genre/:genreId" element={<GenreView />} />
             <Route path="/track/:id" element={<TrackView />} />
             <Route path="/upgrade" element={<UpgradeView />} />
+            <Route path="/checkout/success" element={<UpgradeSuccess />} />
 
             <Route path="*" element={<NotFoundView />} />
           </Routes>
