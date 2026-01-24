@@ -14,7 +14,6 @@ export const useFavoriteTracks = (favoriteIds: string[]) => {
             const tracks = await Promise.all(
                 favoriteIds.map(id => trackService.getTrackById(id))
             );
-            console.log(tracks, 'log del usefavoritetracks')
             return tracks.map(mapTrackToUI);
         },
         enabled: favoriteIds.length > 0,

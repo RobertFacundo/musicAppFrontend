@@ -11,8 +11,6 @@ interface Props {
 export const ProfileCardFavorites = ({ favorites }: Props) => {
     const { data: tracks, isLoading } = useFavoriteTracks(favorites);
 
-    console.log(tracks, 'logs de profilecard favorites')
-
     if (isLoading) {
         return <p className="text-center">Loading favorites...</p>
     }

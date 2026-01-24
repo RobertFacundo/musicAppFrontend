@@ -26,7 +26,12 @@ export const useSession = (sessionId: string) => {
     return useQuery<GetSessionResponse>({
         queryKey: ['session', sessionId],
         queryFn: () => upgradeService.getSession(sessionId),
-        refetchInterval: 2000,
+        refetchInterval: (query) => {
+            const data = query.state.data;
+            console.log(data, 'log del usesession')
+            if (data?.payment_status === 'paid') return false;
+            return 2000;
+        },
         enabled: !!sessionId,
     });
 }

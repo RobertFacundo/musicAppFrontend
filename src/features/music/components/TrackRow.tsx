@@ -17,8 +17,6 @@ const TrackRow = ({ track, index }: Props) => {
     const { toggleFavorite } = usePlayerActions();
 
     const isFavorite = !!user && user.favorites.includes(track.id.toString());
-    console.log(track,'log del trackrow')
-
     return (
         <motion.div
             variants={fadeItemUp}
