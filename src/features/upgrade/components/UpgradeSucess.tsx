@@ -19,14 +19,14 @@ const UpgradeSuccess = () => {
         if (sessionData?.payment_status === 'paid') {
             refetchMe().then ((res:any)=>{
                 if(res?.data?.user){
-                dispatch(setUser(res.data.user))
+                dispatch(setUser(res.data))
                 }
             })
         }
     }, [sessionData, useAppDispatch, refetchMe]);
 
     useEffect(() => {
-        if (meData?.user?.isPremium) {
+        if (meData?.isPremium) {
             setTimeout(() => navigate('/'), 2000);
         }
     }, [navigate, meData]);
@@ -38,14 +38,14 @@ const UpgradeSuccess = () => {
             <h1 className="text-2xl font-bold">
                 {sessionLoading
                     ? "Checking payment..."
-                    : meData?.user?.isPremium
+                    : meData?.isPremium
                         ? "🎉 Welcome to Premium"
                         : "Payment not confirmed"}
             </h1>
             <p>
                 {sessionLoading
                     ? "Verifying payment..."
-                    : meData?.user?.isPremium
+                    : meData?.isPremium
                         ? "Redirecting..."
                         : "If payment is pending, wait a few seconds."}
             </p>
