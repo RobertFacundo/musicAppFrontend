@@ -31,6 +31,8 @@ const UpgradeSuccess = () => {
         }
     }, [navigate, meData]);
 
+    console.log(meData, 'log del me data')
+
     return (
         <div className="text-center p-6">
             <h1 className="text-2xl font-bold">
