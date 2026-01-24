@@ -1,30 +1,35 @@
 import { useNavigate, useSearchParams } from "react-router-dom"
 import { useMe } from "../../auth/hooks/useQueries";
 import { useSession } from "../hook/useUpgrade";
-import { useEffect, useState } from "react";
+import { useEffect} from "react";
+import { useAppDispatch } from "../../../shared/redux/hooks";
+import { setUser } from "../../auth/store/authSlice";
 
 const UpgradeSuccess = () => {
     const navigate = useNavigate();
     const [searchParams] = useSearchParams();
     const sessionId = searchParams.get('session_id');
 
-    const { data: sessionData, isLoading: sessionLoading, isSuccess: sessionSuccess } = useSession(sessionId || "");
-    const { refetch: refetchMe, data: meData, isFetching: meLoading } = useMe();
+    const dispatch = useAppDispatch();
 
-    const [alreadyFetched, setAlreadyFetched] = useState(false);
+    const { data: sessionData, isLoading: sessionLoading} = useSession(sessionId || "");
+    const { refetch: refetchMe, data: meData} = useMe();
 
     useEffect(() => {
-        if (sessionSuccess && sessionData?.payment_status === 'paid' && !alreadyFetched) {
-            refetchMe();
-            setAlreadyFetched(true);
+        if (sessionData?.payment_status === 'paid') {
+            refetchMe().then ((res:any)=>{
+                if(res?.data?.user){
+                dispatch(setUser(res.data.user))
+                }
+            })
         }
-    }, [sessionSuccess, sessionData, alreadyFetched, refetchMe]);
+    }, [sessionData, useAppDispatch, refetchMe]);
 
     useEffect(() => {
-        if (!meLoading && meData?.user?.isPremium) {
+        if (meData?.user?.isPremium) {
             setTimeout(() => navigate('/'), 2000);
         }
-    }, [meLoading, meData]);
+    }, [navigate, meData]);
 
     return (
         <div className="text-center p-6">
