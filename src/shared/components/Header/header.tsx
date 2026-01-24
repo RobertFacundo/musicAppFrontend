@@ -1,11 +1,11 @@
 import { NavLink } from "react-router-dom";
 import { FaHome, FaUser } from 'react-icons/fa'
 import Search from "../Search/Search";
-import { useAppSelector } from "../../redux/hooks";
+import { useMe } from "../../../features/auth/hooks/useQueries";
 
 const Header = () => {
-    const isPremium = useAppSelector((state) => state.auth.user?.isPremium);
-    console.log(isPremium, 'log de header')
+    const { data: user } = useMe();
+    const isPremium = user?.isPremium;
 
     return (
         <header className="sticky top-0 z-50 bg-white/40 dark:bg-neutral-900/40 shadow-md">
