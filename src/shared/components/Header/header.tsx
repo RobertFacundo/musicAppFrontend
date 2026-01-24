@@ -5,6 +5,7 @@ import { useAppSelector } from "../../redux/hooks";
 
 const Header = () => {
     const isPremium = useAppSelector((state) => state.auth.user?.isPremium);
+    console.log(isPremium, 'log de header')
 
     return (
         <header className="sticky top-0 z-50 bg-white/40 dark:bg-neutral-900/40 shadow-md">
