@@ -1,5 +1,5 @@
 import { useMutation, useQuery } from '@tanstack/react-query';
-import { authService } from '../services/auth.service';
+import { authService,type  MeResponse } from '../services/auth.service';
 import type { RegisterDTO, LoginDTO } from '../types';
 
 export const useRegister = () =>
@@ -14,7 +14,7 @@ export const useLogin = () =>
     });
 
 export const useMe = () =>
-    useQuery({
+    useQuery<MeResponse>({
         queryKey: ['me'],
         queryFn: () => authService.getMe(),
         staleTime: 5 * 60 * 1000,
