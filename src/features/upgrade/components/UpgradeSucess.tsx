@@ -14,7 +14,7 @@ const UpgradeSuccess = () => {
     const [alreadyFetched, setAlreadyFetched] = useState(false);
 
     useEffect(() => {
-        if (!sessionSuccess && sessionData?.payment_status === 'paid' && !alreadyFetched) {
+        if (sessionSuccess && sessionData?.payment_status === 'paid' && !alreadyFetched) {
             refetchMe();
             setAlreadyFetched(true);
         }
