@@ -47,7 +47,7 @@ export const useAuth = () => {
 
     useEffect(() => {
         if (meQuery.data && !user) {
-            dispatch(setUser(meQuery.data.user))
+            dispatch(setUser(meQuery.data))
         }
     }, [meQuery.data, user, dispatch])
 
