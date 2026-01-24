@@ -1,13 +1,16 @@
 import { NavLink } from "react-router-dom";
 import { FaHome, FaUser } from 'react-icons/fa'
 import Search from "../Search/Search";
+import { useAppSelector } from "../../redux/hooks";
 
 const Header = () => {
+    const isPremium = useAppSelector((state) => state.auth.user?.isPremium);
+
     return (
         <header className="sticky top-0 z-50 bg-white/40 dark:bg-neutral-900/40 shadow-md">
             <nav className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
                 <h1 className="font-bold text-lg text-neutral-900 dark:text-white">Music App</h1>
-                <Search/>
+                <Search />
                 <div className="flex gap-6">
                     <NavLink
                         to='/'
@@ -33,6 +36,11 @@ const Header = () => {
                             }`}
                     >
                         <FaUser />
+                        {isPremium && (
+                            <span className="text-xs px-2 py-1 rounded-full bg-yellow-400 text-black font-bold">
+                                PREMIUM
+                            </span>
+                        )}
                     </NavLink>
                 </div>
             </nav>
