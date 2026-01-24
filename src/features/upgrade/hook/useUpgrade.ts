@@ -1,5 +1,5 @@
-import { useMutation } from "@tanstack/react-query";
-import { upgradeService, type CreateCheckoutSessionResponse } from "../services/upgrade.service";
+import { useMutation, useQuery } from "@tanstack/react-query";
+import { type GetSessionResponse, upgradeService, type CreateCheckoutSessionResponse } from "../services/upgrade.service";
 
 export const useUpgrade = () => {
     const mutation = useMutation<
@@ -21,3 +21,12 @@ export const useUpgrade = () => {
         isLoading: mutation.status === 'pending'
     }
 };
+
+export const useSession = (sessionId: string) => {
+    return useQuery<GetSessionResponse>({
+        queryKey: ['session', sessionId],
+        queryFn: () => upgradeService.getSession(sessionId),
+        refetchInterval: 2000,
+        enabled: !!sessionId,
+    });
+}
