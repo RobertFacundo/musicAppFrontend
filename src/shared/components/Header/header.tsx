@@ -38,9 +38,7 @@ const Header = () => {
                     >
                         <FaUser />
                         {isPremium && (
-                            <span className="text-xs px-2 py-1 rounded-full bg-yellow-400 text-black font-bold">
-                                PREMIUM
-                            </span>
+                            <img src="/premium.png" alt="Premium Badge" className="absolute -top-2 -right-2 w-5 h-5"/>
                         )}
                     </NavLink>
                 </div>
