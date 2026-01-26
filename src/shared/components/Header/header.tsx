@@ -36,10 +36,12 @@ const Header = () => {
                                 : 'text-white-600 dark:text-neutral-300 hover:text-red-300'
                             }`}
                     >
-                        <FaUser />
-                        {isPremium && (
-                            <img src="/premium.png" alt="Premium Badge" className="absolute -top-2 -right-2 w-5 h-5"/>
-                        )}
+                        <div className="relative">
+                            <FaUser />
+                            {isPremium && (
+                                <img src="/premium.png" alt="Premium Badge" className="absolute -top-2 -right-2 w-8 h-8" />
+                            )}
+                        </div>
                     </NavLink>
                 </div>
             </nav>
