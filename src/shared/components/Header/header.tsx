@@ -30,16 +30,17 @@ const Header = () => {
                     <NavLink
                         to='/profile'
                         className={({ isActive }) =>
-                            `flex items-center gap-2 font-medium transition
+                            `flex items-center gap-2 font-medium transition text-l
                     ${isActive
                                 ? 'text-black dark:text-white text-2xl'
                                 : 'text-white-600 dark:text-neutral-300 hover:text-red-300'
                             }`}
                     >
                         <div className="relative">
-                            <FaUser />
-                            {isPremium && (
-                                <img src="/premium.png" alt="Premium Badge" className="absolute -top-1 -right-1 w-6 h-6" />
+                            {isPremium ? (
+                                <img src="/premium.png" alt="Premium Badge" className="absolute -top-1 -right-1 w-8 h-8" />
+                            ) : (
+                                <FaUser />
                             )}
                         </div>
                     </NavLink>

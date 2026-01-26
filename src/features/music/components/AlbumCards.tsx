@@ -29,7 +29,7 @@ const AlbumCards = ({ albums }: Props) => {
                             <p className="mt-2 text-2xl font-medium truncate">
                                 {album.title}
                             </p>
-                            <p className="text-xs text-neutral-400">
+                            <p className="text-xs text-white">
                                 {album.releaseDate}
                             </p>
                         </button>
