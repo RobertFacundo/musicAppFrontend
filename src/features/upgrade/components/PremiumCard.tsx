@@ -14,12 +14,12 @@ export const PremiumCard = () => {
             <span className="absolute -top-3 right-4 text-xs px-3 py-1 rounded-full bg-yellow-400 text-black font-bold">
                 BEST VALUE
             </span>
-            <h3 className="dark:text-white text-xl font-bold mb-4 flex items-center gap-2">Premium</h3>
+            <h3 className="dark:text-white text-xl font-bold mb-4 pb-2 border-b border-yellow-400/40 flex items-center gap-2 bb-2">Premium</h3>
 
             <ul className="flex-1 space-y-2 text-sm text-neutral-700 dark:text-neutral-300">
-                <li>• No ads</li>
-                <li>• Unlimited skips</li>
-                <li>• Premium badge</li>
+                <li>✓ No ads</li>
+                <li>✓ Unlimited skips</li>
+                <li>✓ Premium badge</li>
             </ul>
 
             <button
