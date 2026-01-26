@@ -29,8 +29,6 @@ const ArtistView = () => {
         })
     }, [data?.artist?.id])
 
-    console.log(albums, 'log del artist view')
-
     if (isLoading) {
         return <Loader />
     }

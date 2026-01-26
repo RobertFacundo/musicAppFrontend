@@ -15,7 +15,6 @@ class PlayerService {
         const { data } = await api.post(`${API_BASE_URL}/favorite`, {
             trackId,
         });
-        console.log(data, 'log del togglefavorite')
 
         return data;
     }

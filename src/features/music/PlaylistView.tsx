@@ -8,7 +8,6 @@ import { Loader } from '../../shared/components/Loader/Loader';
 const PlaylistView = () => {
     const { id } = useParams<{ id: string }>();
     const { data, isLoading, error } = usePlaylist(id);
-    console.log(data, 'log de playlistview')
 
     if (isLoading) {
         return <Loader/>

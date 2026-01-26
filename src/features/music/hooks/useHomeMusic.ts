@@ -36,10 +36,6 @@ export const useHomeMusic = () => {
     const isLoading = isLoadingArtists || isLoadingGenres || isLoadingPlaylists;
     const error = playlistsError ?? artistsError ?? genresError
 
-    console.log('artists', artists);
-    console.log('genres', genres);
-    console.log('playlists', playlists);
-
     return {
         artists: artists ?? [],
         genres: genres ?? [],

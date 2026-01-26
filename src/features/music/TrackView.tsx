@@ -38,7 +38,6 @@ const TrackView = () => {
     if (error || !track) return <p className="p-6 text-red-500">Failed to load track</p>
 
     const isFavorite = !!user && user.favorites.includes(track.id.toString());
-    console.log(isFavorite, 'log del trackview')
 
     return (
         <div className="h-full flex items-center justify-center p-6">
