@@ -39,7 +39,7 @@ const Header = () => {
                         <div className="relative">
                             <FaUser />
                             {isPremium && (
-                                <img src="/premium.png" alt="Premium Badge" className="absolute -top-2 -right-2 w-8 h-8" />
+                                <img src="/premium.png" alt="Premium Badge" className="absolute -top-1 -right-1 w-6 h-6" />
                             )}
                         </div>
                     </NavLink>
