@@ -4,6 +4,7 @@ import { QueryClientProvider } from "@tanstack/react-query"
 import { queryClient } from "./shared/config/queryClient"
 import './index.css'
 import './App.css'
+import './shared/components/Loader/loader.css'
 import App from './App.tsx'
 import { persistor, store } from './shared/redux/store.ts'
 import { Provider } from 'react-redux'

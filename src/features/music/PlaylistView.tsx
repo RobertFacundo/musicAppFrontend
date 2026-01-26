@@ -3,6 +3,7 @@ import { usePlaylist } from './hooks/usePlaylist';
 import TopTracksList from './components/TopTrackList';
 import { motion } from 'framer-motion';
 import { fadeContainer, fadeItemUp } from '../../shared/animations/motionVariants';
+import { Loader } from '../../shared/components/Loader/Loader';
 
 const PlaylistView = () => {
     const { id } = useParams<{ id: string }>();
@@ -10,7 +11,7 @@ const PlaylistView = () => {
     console.log(data, 'log de playlistview')
 
     if (isLoading) {
-        return <p className='p-6 text-neutral-500'>Loading playlist</p>
+        return <Loader/>
     }
 
     if (error || !data) {

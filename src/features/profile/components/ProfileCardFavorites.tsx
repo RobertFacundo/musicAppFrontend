@@ -3,6 +3,7 @@ import { useFavoriteTracks } from "../hooks/useFavoriteTracks";
 import TrackRow from "../../music/components/TrackRow";
 import { motion } from 'framer-motion'
 import { fadeContainer } from "../../../shared/animations/motionVariants";
+import { Loader } from "../../../shared/components/Loader/Loader";
 
 interface Props {
     favorites: User['favorites'];
@@ -12,7 +13,7 @@ export const ProfileCardFavorites = ({ favorites }: Props) => {
     const { data: tracks, isLoading } = useFavoriteTracks(favorites);
 
     if (isLoading) {
-        return <p className="text-center">Loading favorites...</p>
+        return <Loader/>
     }
 
     return (

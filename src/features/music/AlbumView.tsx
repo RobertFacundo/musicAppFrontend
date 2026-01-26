@@ -6,6 +6,7 @@ import { fadeContainer, fadeItemUp } from "../../shared/animations/motionVariant
 import { usePlayerActions } from "../player/hooks/usePlayerActions";
 import { useAppSelector } from "../../shared/redux/hooks";
 import { useEffect } from "react";
+import { Loader } from "../../shared/components/Loader/Loader";
 
 const AlbumView = () => {
     const navigate = useNavigate();
@@ -29,7 +30,7 @@ const AlbumView = () => {
         })
     }, [album?.id])
 
-    if (isLoading) return <p>Loading...</p>
+    if (isLoading) return <Loader/>
     if (error) return <p>Error</p>
     if (!album) return <p>No Album found</p>
 

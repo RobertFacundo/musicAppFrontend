@@ -1,9 +1,10 @@
 import { useNavigate, useSearchParams } from "react-router-dom"
 import { useMe } from "../../auth/hooks/useQueries";
 import { useSession } from "../hook/useUpgrade";
-import { useEffect} from "react";
+import { useEffect } from "react";
 import { useAppDispatch } from "../../../shared/redux/hooks";
 import { setUser } from "../../auth/store/authSlice";
+import { Loader } from "../../../shared/components/Loader/Loader";
 
 const UpgradeSuccess = () => {
     const navigate = useNavigate();
@@ -12,14 +13,14 @@ const UpgradeSuccess = () => {
 
     const dispatch = useAppDispatch();
 
-    const { data: sessionData, isLoading: sessionLoading} = useSession(sessionId || "");
-    const { refetch: refetchMe, data: meData} = useMe();
+    const { data: sessionData, isLoading: sessionLoading } = useSession(sessionId || "");
+    const { refetch: refetchMe, data: meData } = useMe();
 
     useEffect(() => {
         if (sessionData?.payment_status === 'paid') {
-            refetchMe().then ((res:any)=>{
-                if(res?.data?.user){
-                dispatch(setUser(res.data))
+            refetchMe().then((res: any) => {
+                if (res?.data?.user) {
+                    dispatch(setUser(res.data))
                 }
             })
         }
@@ -31,24 +32,55 @@ const UpgradeSuccess = () => {
         }
     }, [navigate, meData]);
 
-    console.log(meData, 'log del me data')
+    const isPremium = meData?.isPremium
 
     return (
-        <div className="text-center p-6">
-            <h1 className="text-2xl font-bold">
-                {sessionLoading
-                    ? "Checking payment..."
-                    : meData?.isPremium
-                        ? "🎉 Welcome to Premium"
-                        : "Payment not confirmed"}
-            </h1>
-            <p>
-                {sessionLoading
-                    ? "Verifying payment..."
-                    : meData?.isPremium
-                        ? "Redirecting..."
-                        : "If payment is pending, wait a few seconds."}
-            </p>
+        <div className="min-h-full flex items-center justify-center px-6">
+            <div
+                className="
+          p-8 rounded-xl shadow-xl
+          bg-white/80 dark:bg-neutral-900/80
+          text-center max-w-md w-full
+        "
+            >
+                <h1
+                    className="
+            text-2xl font-bold mb-2
+            text-neutral-900 dark:text-white
+          "
+                >
+                    {sessionLoading
+                        ? "Checking payment..."
+                        : isPremium
+                            ? "🎉 Welcome to Premium"
+                            : "Processing your payment"}
+                </h1>
+
+                <p
+                    className="
+            text-sm mb-6
+            text-neutral-600 dark:text-neutral-400
+          "
+                >
+                    {sessionLoading
+                        ? "Verifying your subscription, please wait."
+                        : isPremium
+                            ? "You’re all set. Redirecting to home..."
+                            : "This may take a few seconds."}
+                </p>
+
+                {sessionLoading && (
+                    <div className="flex justify-center">
+                        <Loader />
+                    </div>
+                )}
+
+                {isPremium && (
+                    <div className="mt-4 text-yellow-500 font-medium text-sm">
+                        Premium activated 👑
+                    </div>
+                )}
+            </div>
         </div>
     )
 };

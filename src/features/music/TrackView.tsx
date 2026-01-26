@@ -6,6 +6,7 @@ import { useAppSelector } from "../../shared/redux/hooks";
 import { usePlayerActions } from "../player/hooks/usePlayerActions";
 import { FaHeart, FaRegHeart } from 'react-icons/fa';
 import { useEffect } from "react";
+import { Loader } from "../../shared/components/Loader/Loader";
 
 const TrackView = () => {
     const { id } = useParams<{ id: string }>();
@@ -33,7 +34,7 @@ const TrackView = () => {
     }, [track?.id]);
 
 
-    if (isLoading) return <p className="p-6 text-neutral-500">Loading track...</p>
+    if (isLoading) return <Loader/>
     if (error || !track) return <p className="p-6 text-red-500">Failed to load track</p>
 
     const isFavorite = !!user && user.favorites.includes(track.id.toString());

@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import HomeCard from "./components/HomeCard";
 import { useHomeMusic } from "./hooks/useHomeMusic";
+import { Loader } from "../../shared/components/Loader/Loader";
 
 const HomeView = () => {
     const navigate = useNavigate();
@@ -15,11 +16,7 @@ const HomeView = () => {
 
     if (isLoading) {
         return (
-            <div className="p-6">
-                <p className="text-sm text-neutral-500">
-                    Loading music...
-                </p>
-            </div>
+            <Loader />
         )
     }
     if (error) {

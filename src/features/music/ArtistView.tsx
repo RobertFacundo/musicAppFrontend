@@ -8,6 +8,7 @@ import { fadeContainer } from "../../shared/animations/motionVariants";
 import { usePlayerActions } from "../player/hooks/usePlayerActions";
 import { useAppSelector } from "../../shared/redux/hooks";
 import AlbumCards from "./components/AlbumCards";
+import { Loader } from "../../shared/components/Loader/Loader";
 
 const ArtistView = () => {
     const { id } = useParams<{ id: string }>();
@@ -28,10 +29,10 @@ const ArtistView = () => {
         })
     }, [data?.artist?.id])
 
-    console.log(albums,'log del artist view')
+    console.log(albums, 'log del artist view')
 
     if (isLoading) {
-        return <p className="p-6 text-neutral-500">Loading artist...</p>
+        return <Loader />
     }
     if (error || !data) {
         return <p className="p-6 text-red-500">Failed to load artist...</p>

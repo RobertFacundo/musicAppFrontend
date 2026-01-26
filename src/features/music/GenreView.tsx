@@ -1,12 +1,13 @@
 import { useParams } from "react-router-dom";
 import { useGenre } from "./hooks/useGenre";
 import ArtistCard from "./components/ArtistCard";
+import { Loader } from "../../shared/components/Loader/Loader";
 
 const GenreView = () => {
     const { genreId } = useParams<{ genreId: string }>();
     const { artists, isLoading, error } = useGenre(genreId);
 
-    if (isLoading) return <p className="p-6 text-neutral-500">Loading artists...</p>;
+    if (isLoading) return <Loader/>;
     if (error) return <p className="p-6 text-red-500">Failed to load artists</p>
 
     return (
