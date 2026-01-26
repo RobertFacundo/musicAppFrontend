@@ -7,6 +7,22 @@ const UpgradeView = () => {
                 Upgrade your plan
             </h1>
             <UpgradeCards />
+            <div className="
+                mt-8
+                text-center
+                text-xs
+                text-neutral-500
+                dark:text-neutral-400
+                max-w-md
+                mx-auto
+            ">
+                <p className="font-semibold mb-1">Demo mode</p>
+                <p>
+                    This upgrade flow uses Stripe test mode.
+                    <br />
+                    Use card <span className="font-mono">4242 4242 4242 4242</span> with any future date and CVC.
+                </p>
+            </div>
         </div>
     )
 };
