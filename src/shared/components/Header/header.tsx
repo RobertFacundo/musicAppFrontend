@@ -30,7 +30,7 @@ const Header = () => {
                     <NavLink
                         to='/profile'
                         className={({ isActive }) =>
-                            `flex items-center gap-2 font-medium transition
+                            `flex items-center gap-2 font-medium transition text-xl
                     ${isActive
                                 ? 'text-black dark:text-white text-2xl'
                                 : 'text-white-600 dark:text-neutral-300 hover:text-red-300'
@@ -40,7 +40,7 @@ const Header = () => {
                             <img
                                 src="/premium.png"
                                 alt="Premium"
-                                className="w-7 h-7"
+                                className="w-7 h-7 transition duration-200 hover:scale-110 hover:drop-shadow-[0_0_6px_rgba(250,204,21,0.8)]    "
                             />
                         ) : (
                             <FaUser />

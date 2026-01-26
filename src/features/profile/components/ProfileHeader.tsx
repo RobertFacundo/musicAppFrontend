@@ -15,7 +15,7 @@ export const ProfileHeader = ({ user }: Props) => {
             <p className="text-sm text-gray-500 dark:text-gray-400">user since {formattedDate}</p>
 
             {user.isPremium && (
-                <span className="inline-block mt-2 px-2 py-1 text-xs rounded-full bg-yellow-400 text-black">
+                <span className="inline-block mt-2 px-2 py-1 text-xs rounded-full bg-yellow-400 text-white">
                     ⭐ Premium
                 </span>
             )}
