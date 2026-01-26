@@ -11,7 +11,7 @@ const UpgradeView = () => {
                 mt-8
                 text-center
                 text-xs
-                text-neutral-500
+                text-black
                 dark:text-neutral-400
                 max-w-md
                 mx-auto
