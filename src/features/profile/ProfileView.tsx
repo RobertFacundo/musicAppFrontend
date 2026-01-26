@@ -8,7 +8,6 @@ import { fadeContainer, fadeItemUp } from '../../shared/animations/motionVariant
 
 const ProfileView = () => {
     const user = useAppSelector((state) => state.auth.user)
-    console.log(user)
     if (!user) return <p>No user loaded</p>
 
     return (
