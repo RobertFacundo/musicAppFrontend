@@ -52,7 +52,7 @@
     "success": {
         "titleLoading": "Verificando pago",
         "welcome": "🎉 Bienvenido a Premium",
-        "processing": "Procesando pago",
+        "processing": "Procesando pago...",
         "verifying": "Verificando tu subscripcion",
         "redirecting": "Todo esta en orden. Redirigiendo a Home",
         "seconds":"Puede tardar unos segundos"
