@@ -1,0 +1,9 @@
+{
+  "settings": {
+    "title": "Settings",
+    "theme": "Theme",
+    "language": "Language",
+    "upgrade": "Upgrade to Premium",
+    "premium": "You are Premium 👑"
+  }
+}

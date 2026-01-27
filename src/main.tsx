@@ -5,6 +5,7 @@ import { queryClient } from "./shared/config/queryClient"
 import './index.css'
 import './App.css'
 import './shared/components/Loader/loader.css'
+import './shared/i18n/i18n'
 import App from './App.tsx'
 import { persistor, store } from './shared/redux/store.ts'
 import { Provider } from 'react-redux'
