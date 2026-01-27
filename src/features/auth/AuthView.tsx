@@ -1,9 +1,11 @@
 import { useState } from "react";
 import AuthForm from "./components/AuthForm";
 import { useAuthForm } from "./hooks/useAuthForm";
-import { motion} from 'framer-motion'
+import { motion } from 'framer-motion'
+import { useTranslation } from "react-i18next";
 
 const AuthView = () => {
+    const { t } = useTranslation();
     const [mode, setMode] = useState<'login' | 'register'>('login');
     const { register, onSubmit, isLoading, error } = useAuthForm(mode);
 
@@ -14,7 +16,7 @@ const AuthView = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.45, ease: 'easeOut' }}
                 className="w-full max-w-md rounded-2xl bg-white dark:bg-neutral-900 shadow-xl p-8 border border-black/5 dark:border-white/10">
-                <h1 className="text-3xl font-bold text-center mb-6 text-[#FCB425]">{mode === 'login' ? 'Login' : 'Register'}</h1>
+                <h1 className="text-3xl font-bold text-center mb-6 text-[#FCB425]">{mode === 'login' ? t('auth.login') : t('auth.register')}</h1>
 
                 <AuthForm
                     mode={mode}
@@ -29,8 +31,8 @@ const AuthView = () => {
                     className="mt-2 w-full italic text-center text-[#FD7258] hover:text-[#FA3433] transition-colors cursor-pointer"
                 >
                     {mode === 'login'
-                        ? 'No tenes cuenta? Registráte'
-                        : 'Ya tenes cuenta? Iniciá sesion'
+                        ? t('auth.noAccount?')
+                        : t('auth.account?')
                     }
                 </button>
             </motion.div>

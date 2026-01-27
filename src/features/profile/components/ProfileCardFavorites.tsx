@@ -4,25 +4,27 @@ import TrackRow from "../../music/components/TrackRow";
 import { motion } from 'framer-motion'
 import { fadeContainer } from "../../../shared/animations/motionVariants";
 import { Loader } from "../../../shared/components/Loader/Loader";
+import { useTranslation } from "react-i18next";
 
 interface Props {
     favorites: User['favorites'];
 }
 
 export const ProfileCardFavorites = ({ favorites }: Props) => {
+    const { t } = useTranslation();
     const { data: tracks, isLoading } = useFavoriteTracks(favorites);
 
     if (isLoading) {
-        return <Loader/>
+        return <Loader />
     }
 
     return (
         <div className="p-4 rounded-xl shadow-md bg-white/70 dark:bg-neutral-900/70">
-            <h3 className="font-bold mb-2 text-center">Favorites</h3>
+            <h3 className="font-bold mb-2 text-center">{t('settings.favorites')}</h3>
 
             {favorites.length === 0 ? (
                 <p className="text-sm text-gray-500 dark:text-gray-400 text-center">
-                    No favorites songs yet
+                    {t('settings.favoritesYet')}
                 </p>
             ) : (
                 <motion.ul variants={fadeContainer} initial='hidden' animate='show' className="space-y-2 h-100 overflow-y-auto">

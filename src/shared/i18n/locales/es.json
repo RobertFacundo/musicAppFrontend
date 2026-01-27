@@ -1,9 +1,60 @@
 {
-  "settings": {
-    "title": "Configuración",
-    "theme": "Tema",
-    "language": "Idioma",
-    "upgrade": "Pasar a Premium",
-    "premium": "Sos Premium 👑"
-  }
+    "settings": {
+        "title": "Configuración",
+        "theme": "Tema",
+        "language": "Idioma",
+        "upgrade": "Pasar a Premium",
+        "premium": "Sos Premium 👑",
+        "welcoming": "Bienvenido a Music App,",
+        "userSince": "usuario desde",
+        "favorites": "Favoritos",
+        "favoritesYet": "No tienes canciones favoritas aún",
+        "historialYet": "Sin historial aún"
+    },
+    "home": {
+        "error": "Falló cargar el contenido musical."
+    },
+    "auth": {
+        "login": "Loguearse",
+        "register": "Registrarse",
+        "noAccount?": "No tenes cuenta? Registráte",
+        "account?": "Ya tenés cuenta? Logueate",
+        "usernameLabel": "Nombre de usuario",
+        "usernamePlaceholder": "Escribe tu nombre de usuario",
+        "passwordLabel": "Contraseña",
+        "passwordPlaceholder": "... y tu contraseña",
+        "loading": "Cargando..."
+    },
+    "artists": {
+        "followers": "seguidores"
+    },
+    "genre": {
+        "title": "Artistas del genero"
+    },
+    "upgrade": {
+        "title": "Mejora tu plan",
+        "demo": "Este flow de upgrade utiliza Stripe test demo.",
+        "useCard": "Usa la tarjeta ",
+        "futureDate": "con cualquier fecha futura y CVC."
+    },
+    "freeCard": {
+        "ads": "✓ Publicidad",
+        "skips": "✓ Saltos limitados",
+        "features": "✓ Implementaciones basicas",
+        "current": "Tu plan actual"
+    },
+    "premiumCard": {
+        "value": "MEJOR PRECIO",
+        "ads": "✓ Sin publicidad",
+        "skips": "✓ Saltos ilimitados",
+        "redirecting": "Redirigiendo"
+    },
+    "success": {
+        "titleLoading": "Verificando pago",
+        "welcome": "🎉 Bienvenido a Premium",
+        "processing": "Procesando pago",
+        "verifying": "Verificando tu subscripcion",
+        "redirecting": "Todo esta en orden. Redirigiendo a Home",
+        "seconds":"Puede tardar unos segundos"
+    }
 }

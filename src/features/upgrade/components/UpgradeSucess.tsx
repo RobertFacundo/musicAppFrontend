@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { useAppDispatch } from "../../../shared/redux/hooks";
 import { setUser } from "../../auth/store/authSlice";
 import { Loader } from "../../../shared/components/Loader/Loader";
+import { useTranslation } from "react-i18next";
 
 const UpgradeSuccess = () => {
     const navigate = useNavigate();
@@ -15,6 +16,8 @@ const UpgradeSuccess = () => {
 
     const { data: sessionData, isLoading: sessionLoading } = useSession(sessionId || "");
     const { refetch: refetchMe, data: meData } = useMe();
+
+    const { t } = useTranslation();
 
     useEffect(() => {
         if (sessionData?.payment_status === 'paid') {
@@ -50,10 +53,10 @@ const UpgradeSuccess = () => {
           "
                 >
                     {sessionLoading
-                        ? "Checking payment..."
+                        ? t('success.titleLoading')
                         : isPremium
-                            ? "🎉 Welcome to Premium"
-                            : "Processing your payment"}
+                            ? t("success.welcome")
+                            : t('success.processing')}
                 </h1>
 
                 <p
@@ -63,10 +66,10 @@ const UpgradeSuccess = () => {
           "
                 >
                     {sessionLoading
-                        ? "Verifying your subscription, please wait."
+                        ? t('success.verifying')
                         : isPremium
-                            ? "You’re all set. Redirecting to home..."
-                            : "This may take a few seconds."}
+                            ? t('success.redirecting')
+                            : t('success.seconds')}
                 </p>
 
                 {sessionLoading && (
@@ -77,7 +80,7 @@ const UpgradeSuccess = () => {
 
                 {isPremium && (
                     <div className="mt-4 text-yellow-500 font-medium text-sm">
-                        Premium activated 👑
+                        Premium 👑
                     </div>
                 )}
             </div>

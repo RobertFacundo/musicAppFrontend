@@ -7,11 +7,13 @@ import { usePlayerActions } from "../player/hooks/usePlayerActions";
 import { useAppSelector } from "../../shared/redux/hooks";
 import { useEffect } from "react";
 import { Loader } from "../../shared/components/Loader/Loader";
+import { useTranslation } from "react-i18next";
 
 const AlbumView = () => {
     const navigate = useNavigate();
     const { id } = useParams<{ id: string }>();
     const { addHistory } = usePlayerActions();
+    const { t } = useTranslation();
 
     const user = useAppSelector(state => state.auth.user);
 
@@ -19,20 +21,20 @@ const AlbumView = () => {
 
     const { album, isLoading, error } = useAlbum(id);
 
-    useEffect(()=>{
-        if(!user || !album)return;
+    useEffect(() => {
+        if (!user || !album) return;
 
         addHistory({
-            type:'album',
-            deezerId:album.id.toString(),
-            title:album.title,
-            image:album.cover_medium,
+            type: 'album',
+            deezerId: album.id.toString(),
+            title: album.title,
+            image: album.cover_medium,
         })
     }, [album?.id])
 
-    if (isLoading) return <Loader/>
+    if (isLoading) return <Loader />
     if (error) return <p>Error</p>
-    if (!album) return <p>No Album found</p>
+    if (!album) return <p>{t('home.error')}</p>
 
     return (
         <motion.div variants={fadeContainer} initial='hidden' animate='show' className="p-6 h-full flex flex-col overflow-y-auto">

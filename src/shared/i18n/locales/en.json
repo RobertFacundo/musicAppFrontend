@@ -1,9 +1,60 @@
 {
-  "settings": {
-    "title": "Settings",
-    "theme": "Theme",
-    "language": "Language",
-    "upgrade": "Upgrade to Premium",
-    "premium": "You are Premium 👑"
-  }
+    "settings": {
+        "title": "Settings",
+        "theme": "Theme",
+        "language": "Language",
+        "upgrade": "Upgrade to Premium",
+        "premium": "You are Premium 👑",
+        "welcoming": "Welcome to Music App,",
+        "userSince": "user since",
+        "favorites": "Favorites",
+        "favoritesYet": "No favorites songs yet",
+        "historialYet": "No historial yet"
+    },
+    "home": {
+        "error": "Fail to load music content."
+    },
+    "auth": {
+        "login": "Login",
+        "register": "Register",
+        "noAccount?": "Don't have an account? Register",
+        "account?": "Have an account? Login",
+        "usernameLabel": "username",
+        "usernamePlaceholder": "Write your username",
+        "passwordLabel": "Password",
+        "passwordPlaceholder": "... and your password",
+        "loading": "Loading..."
+    },
+    "artists": {
+        "followers": "followers"
+    },
+    "genre": {
+        "title": "Artists of the genre"
+    },
+    "upgrade": {
+        "title": "Upgrade your plan",
+        "demo": "This upgrade flow uses Stripe test mode.",
+        "useCard": "Use card ",
+        "futureDate": "with any future date and CVC."
+    },
+    "freeCard": {
+        "ads": "✓ Ads",
+        "skips": "✓ Limited skips",
+        "features": "✓ Basic features",
+        "current": "Your current plan"
+    },
+    "premiumCard": {
+        "value": "BEST VALUE",
+        "ads": "✓ No ads",
+        "skips": "✓ Unlimited skips",
+        "redirecting": "Redirigiendo"
+    },
+    "success": {
+        "titleLoading": "Checking payment...",
+        "welcome": "🎉 Welcome to Premium",
+        "processing": "Processing payment",
+        "verifying": "Verifying your subscription, please wait.",
+        "redirecting": "You’re all set. Redirecting to home...",
+        "seconds": "This may take a few seconds."
+    }
 }

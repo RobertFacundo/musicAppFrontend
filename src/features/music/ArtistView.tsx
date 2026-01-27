@@ -9,11 +9,13 @@ import { usePlayerActions } from "../player/hooks/usePlayerActions";
 import { useAppSelector } from "../../shared/redux/hooks";
 import AlbumCards from "./components/AlbumCards";
 import { Loader } from "../../shared/components/Loader/Loader";
+import { useTranslation } from "react-i18next";
 
 const ArtistView = () => {
     const { id } = useParams<{ id: string }>();
     const { data, isLoading, error } = useArtist(id);
     const { data: albums } = useArtistAlbums(id);
+    const { t } = useTranslation();
 
     const { addHistory } = usePlayerActions();
     const user = useAppSelector(state => state.auth.user);
@@ -33,7 +35,7 @@ const ArtistView = () => {
         return <Loader />
     }
     if (error || !data) {
-        return <p className="p-6 text-red-500">Failed to load artist...</p>
+        return <p className="p-6 text-red-500">{t('home.error')}</p>
     }
 
     return (

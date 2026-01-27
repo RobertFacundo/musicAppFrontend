@@ -2,8 +2,10 @@ import { useNavigate } from "react-router-dom";
 import HomeCard from "./components/HomeCard";
 import { useHomeMusic } from "./hooks/useHomeMusic";
 import { Loader } from "../../shared/components/Loader/Loader";
+import { useTranslation } from "react-i18next";
 
 const HomeView = () => {
+    const { t } = useTranslation();
     const navigate = useNavigate();
 
     const {
@@ -23,7 +25,7 @@ const HomeView = () => {
         return (
             <div className="p-6">
                 <p className="text-sm text-red-500">
-                    Failed to load music content
+                   {t('home.error')}
                 </p>
             </div>
         )

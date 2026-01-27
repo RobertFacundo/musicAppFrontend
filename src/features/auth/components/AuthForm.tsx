@@ -1,6 +1,7 @@
 import type React from "react";
 import { motion, AnimatePresence } from 'framer-motion';
 import AuthInput from "./AuthInput";
+import { useTranslation } from "react-i18next";
 
 export type AuthMode = 'login' | 'register';
 
@@ -19,6 +20,7 @@ const AuthForm = ({
     isLoading = false,
     error,
 }: AuthFormProps) => {
+    const { t } = useTranslation();
     return (
         <motion.form
             layout
@@ -35,9 +37,9 @@ const AuthForm = ({
                         transition={{ duration: 0.7, ease: 'easeOut' }}
                     >
                         <AuthInput
-                            label="Username"
+                            label={t('auth.usernameLabel')}
                             type="text"
-                            placeholder="Write your Username"
+                            placeholder={t('auth.usernamePlaceholder')}
                             name="username"
                             register={register}
                         />
@@ -54,9 +56,9 @@ const AuthForm = ({
             />
 
             <AuthInput
-                label="Password"
+                label={t('auth.passwordLabel')}
                 type="password"
-                placeholder="... and your Password"
+                placeholder={t('auth.passwordPlaceholder')}
                 name="password"
                 register={register}
             />
@@ -75,10 +77,10 @@ const AuthForm = ({
                     cursor-pointer
                 ">
                 {isLoading
-                    ? 'Loading'
+                    ? t('auth.loading')
                     : mode === 'login'
-                        ? 'Login'
-                        : 'Register'
+                        ? t('auth.login')
+                        : t('auth.register')
                 }
             </button>
         </motion.form>
