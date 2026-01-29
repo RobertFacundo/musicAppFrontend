@@ -12,6 +12,12 @@ export const ProfileSettings = () => {
     const { data: user } = useMe();
     const isPremium = user?.isPremium
 
+    const changeLanguage = () => {
+        const newLang = i18n.language === 'en' ? 'es' : 'en'
+        i18n.changeLanguage(newLang)
+        localStorage.setItem('lang', newLang)
+    }
+
     return (
         <div className="p-4 rounded-xl shadow-md  w-full min-h-[200px] flex flex-col bg-white/70 dark:bg-neutral-900/70">
             <h3 className="font-bold mb-2">{t('settings.title')}</h3>
@@ -23,7 +29,7 @@ export const ProfileSettings = () => {
             </button>
             <button
                 className="block w-full mb-2 p-2 rounded-lg border cursor-pointer"
-                onClick={() => i18n.changeLanguage(i18n.language === 'en' ? 'es' : 'en')}
+                onClick={changeLanguage}
             >
                 {t('settings.language')}:{i18n.language.toUpperCase()}
             </button>
