@@ -3,7 +3,7 @@
 A modern **Spotify-like music application frontend** built with React and TypeScript.  
 The app focuses on **professional frontend architecture**, clean separation of concerns, and real-world features such as authentication, premium subscriptions, favorites, listening history, and integrations with external APIs.
 
-This project was designed as a **portfolio-grade application**, prioritizing scalability, maintainability, and real production patterns.
+This project was designed as a **portfolio-grade application**, prioritizing scalability, maintainability, and real production patterns. Developed over **~40 hours** of focused, tracked work, covering architecture, authentication, API integrations, payments, and deployment.
 
 ---
 
@@ -132,6 +132,11 @@ Each feature is self-contained and includes:
 - Clean routing and navigation
 - Scalable styling with Tailwind
 - Production-like patterns (auth, payments, protected views)
+  
+### ⏲️ Time Tracking
+
+- Total tracked development time: **39h 57m**
+- Sessions logged individually across architecture, frontend, backend, and integrations
 
 ---
 
