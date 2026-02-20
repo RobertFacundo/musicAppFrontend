@@ -33,7 +33,7 @@ const FooterProfile = () => {
             </motion.p>
             <motion.div variants={fadeItemUp} className="flex flex-col gap-1">
                 <span className="text-xs uppercase tracking-wide text-neutral-500 dark:text-neutral-500">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea, quasi id, hic quisquam molestiae laborum alias obcaecati numquam unde exercitationem modi ipsum. Illo qui aperiam consequatur perferendis voluptate earum inventore!
+                {t('footer.profile')}
                 </span>
                 <a
                     href="https://facundorobert.vercel.app/"
