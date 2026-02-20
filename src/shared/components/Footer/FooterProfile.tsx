@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import { fadeItemUp } from "../../animations/motionVariants";
+import { useTranslation } from "react-i18next";
 
 const FooterProfile = () => {
+    const { t } = useTranslation();
 
     return (
         <div className="flex flex-col gap-4">
@@ -39,7 +41,7 @@ const FooterProfile = () => {
                     rel="noopener noreferrer"
                     className="text-sm font-medium text-neutral-800 dark:text-neutral-200 hover:underline"
                 >
-                    Lorem, ipsum dolor.
+                    Portfolio
                 </a>
             </motion.div>
         </div>

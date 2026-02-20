@@ -56,5 +56,8 @@
         "verifying": "Verificando tu subscripcion",
         "redirecting": "Todo esta en orden. Redirigiendo a Home",
         "seconds":"Puede tardar unos segundos"
+    },
+    "footer":{
+        "profile":"Desarrollador Full Stack en busca de mi primer desafío profesional, listo para integrarme a un equipo y contribuir con soluciones reales desde el primer día."
     }
 }

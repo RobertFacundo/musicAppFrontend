@@ -56,5 +56,8 @@
         "verifying": "Verifying your subscription, please wait.",
         "redirecting": "You’re all set. Redirecting to home...",
         "seconds": "This may take a few seconds."
+    },
+    "footer": {
+        "profile": "Full Stack Developer eager for my first professional opportunity, ready to join a team and make a meaningful impact from day one."
     }
 }
